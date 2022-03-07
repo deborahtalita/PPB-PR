@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DaTask</string>
+    <string name="app_logo">DaTask</string>
+    <string name="welcome">Welcome, Adolfo</string>
+    <string name="task_pending">2 task pending</string>
+    <string name="my_task">My Tasks</string>
+    <string name="task">Latihan Statistika Deskriptif</string>
+    <string name="deadline">February 21, 2022</string>
+    <string name="course">Statistika</string>
+    <string name="home_logo">Home</string>
+    <string name="lib_logo">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
