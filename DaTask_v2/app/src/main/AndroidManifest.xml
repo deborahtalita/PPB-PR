@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DaTask_v2">
         <activity
+            android:name=".TaskDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddNewTaskActivity"
             android:exported="false" />
         <activity

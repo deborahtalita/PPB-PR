@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".AddNewTaskActivity">
+    tools:context=".TaskDetailActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editTextName"
+                android:id="@+id/detailName"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="46dp"
@@ -72,7 +72,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editTextDate"
+                android:id="@+id/detailDate"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="46dp"
@@ -108,7 +108,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editTextCourse"
+                android:id="@+id/detailCourse"
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="46dp"
@@ -140,7 +140,7 @@
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/editTextDescription"
+                android:id="@+id/detailDescription"
                 android:layout_width="320dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="46dp"
@@ -181,19 +181,36 @@
                 android:layout_marginEnd="322dp"
                 android:layout_marginBottom="164dp"
                 android:minWidth="50dp"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/addTaskButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/deleteTaskButton"
+                android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="272dp"
+                android:layout_marginStart="84dp"
                 android:layout_marginTop="93dp"
-                android:layout_marginEnd="26dp"
+                android:layout_marginEnd="65dp"
+                android:layout_marginBottom="102dp"
+                android:background="@drawable/grey_button"
+                android:fontFamily="@font/nunito_semibold"
+                android:text="Delete"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/editTaskButton"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="217dp"
+                android:layout_marginTop="93dp"
+
                 android:layout_marginBottom="102dp"
                 android:background="@drawable/dark_button"
                 android:fontFamily="@font/nunito_semibold"
-                android:text="Add task"
+                android:text="Edit"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"

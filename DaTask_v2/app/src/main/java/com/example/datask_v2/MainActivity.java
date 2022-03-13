@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         plusButton = (ImageButton) findViewById(R.id.add_button);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final TaskListAdapter adapter = new TaskListAdapter(new TaskListAdapter.TaskDiff());
+        final TaskListAdapter adapter = new TaskListAdapter(new TaskListAdapter.TaskDiff(), this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

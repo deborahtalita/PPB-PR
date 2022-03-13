@@ -1,6 +1,7 @@
 package com.example.datask_v2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +17,11 @@ import java.util.List;
 public class TaskListAdapter extends
         ListAdapter<Task, TaskViewHolder> {
 
-    protected TaskListAdapter(@NonNull DiffUtil.ItemCallback<Task> diffCallback) {
+    Context ctx;
+    protected TaskListAdapter(@NonNull DiffUtil.ItemCallback<Task> diffCallback, Context ctx) {
         super(diffCallback);
+        this.ctx = ctx;
+
     }
 
     @NonNull
@@ -30,6 +34,19 @@ public class TaskListAdapter extends
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Task current = getItem(position);
         holder.bind(current.getTaskName(), current.getDueDate(), current.getCourseName());
+        holder.layout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(ctx, TaskDetailActivity.class);
+                in.putExtra("taskname",current.getTaskName());
+                in.putExtra("duedate",current.getDueDate());
+                in.putExtra("course",current.getCourseName());
+                in.putExtra("desc",current.getDesc());
+                ctx.startActivity(in);
+            }
+        });
+
     }
 
     static class TaskDiff extends DiffUtil.ItemCallback<Task> {
