@@ -20,23 +20,23 @@ public class TaskListAdapter extends
 
     Context ctx;
     private List<Task> listTask;
+    private LayoutInflater mInflater;
 
-    public TaskListAdapter(List<Task> listTask){
-//        this.ctx = ctx;
+    public TaskListAdapter(Context ctx, List<Task> listTask){
+        mInflater = LayoutInflater.from(ctx);
         this.listTask = listTask;
     }
 
     @NonNull
     @Override
-    public TaskListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View taskView = LayoutInflater.
-                from(viewGroup.getContext()).inflate(R.layout.tasklist_item, viewGroup, false);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View taskView = mInflater.inflate(R.layout.tasklist_item, viewGroup, false);
         ViewHolder vHolder = new ViewHolder(taskView);
         return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull TaskListAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
         Task item = listTask.get(i);
         viewHolder.taskName.setText(listTask.get(i).getName());
         viewHolder.dueDate.setText(listTask.get(i).getDueDate());
@@ -51,14 +51,12 @@ public class TaskListAdapter extends
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public TextView taskName, dueDate, courseName;
-        LinearLayout linearLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             taskName = itemView.findViewById(R.id.view_name);
             dueDate = itemView.findViewById(R.id.view_date);
             courseName = itemView.findViewById(R.id.view_course);
-            linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }
 }

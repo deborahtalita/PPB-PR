@@ -41,6 +41,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ImageButton plusButton = (ImageButton) view.findViewById(R.id.add_button);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         listTask = new ArrayList<>();
@@ -49,7 +50,7 @@ public class HomeFragment extends Fragment {
         Task task2 = new Task("Tugas 2","31-03-2022","PPB", "Implementasi room data");
         listTask.add(task2);
 
-        TaskListAdapter adapter = new TaskListAdapter(listTask);
+        TaskListAdapter adapter = new TaskListAdapter(getContext(), listTask);
         recyclerView.setAdapter(adapter);
 
         plusButton.setOnClickListener(new View.OnClickListener() {
