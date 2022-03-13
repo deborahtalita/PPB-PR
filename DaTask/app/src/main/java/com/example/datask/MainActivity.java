@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        Intent intentReceiver = getIntent();
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

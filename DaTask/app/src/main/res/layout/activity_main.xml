@@ -31,4 +31,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu" />
 
+    <fragment
+        android:name="com.example.datask.HomeFragment"
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_home"/>
+
 </android.support.constraint.ConstraintLayout>

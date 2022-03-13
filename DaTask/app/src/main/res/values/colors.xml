@@ -9,7 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="splash_back">#D6EACF</color>
     <color name="background">#EFF9EC</color>
-    <color name="grey">#8F8F8F</color>
+    <color name="darkgrey">#8F8F8F</color>
+    <color name="grey">#DADED9</color>
     <color name="nav_bar">#9DAD97</color>
     <color name="nav_bar_checked">#EFF9EC</color>
     <color name="nav_bar_unchecked">#4C5449</color>
