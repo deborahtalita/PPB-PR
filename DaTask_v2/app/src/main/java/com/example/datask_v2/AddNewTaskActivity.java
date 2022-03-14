@@ -28,6 +28,7 @@ public class AddNewTaskActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_task);
+        getSupportActionBar().hide();
         taskName = findViewById(R.id.editTextName);
         datePicker = (EditText) findViewById(R.id.editTextDate);
         courseName = findViewById(R.id.editTextCourse);

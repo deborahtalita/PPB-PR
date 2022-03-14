@@ -16,11 +16,11 @@
             android:id="@+id/welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="108dp"
+            android:layout_marginStart="128dp"
             android:layout_marginTop="44dp"
             android:fontFamily="@font/nunito_bold"
             android:gravity="center"
-            android:text="@string/new_task"
+            android:text="Task details"
             android:textColor="@color/black"
             android:textSize="30sp" />
 
