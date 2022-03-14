@@ -22,6 +22,10 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     List<Task> listTask;
+    String[] name;
+    String[] course;
+    String[] duedate;
+    String[] desc;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -42,17 +46,14 @@ public class HomeFragment extends Fragment {
         ImageButton plusButton = (ImageButton) view.findViewById(R.id.add_button);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        listTask = new ArrayList<>();
-        Task task1 = new Task("Tugas 1","31-03-2022","PPB", "Membuat to-do list app");
-        listTask.add(task1);
-        Task task2 = new Task("Tugas 2","31-03-2022","PPB", "Implementasi room data");
-        listTask.add(task2);
-
-        TaskListAdapter adapter = new TaskListAdapter(getContext(), listTask);
+        name = new String[]{"Tugas1"};
+        course = new String[]{"PPB"};
+        duedate = new String[]{"31/02/2022"};
+        desc = new String[]{"Membuat aplikasi"};
+        final TaskListAdapter adapter = new TaskListAdapter(getContext(), name, duedate, course);
         recyclerView.setAdapter(adapter);
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         plusButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

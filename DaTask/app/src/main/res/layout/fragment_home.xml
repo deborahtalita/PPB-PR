@@ -8,20 +8,6 @@
     android:background="@color/background"
     tools:context=".HomeFragment">
 
-    <ImageButton
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="80dp"
-        android:background="@drawable/round_button"
-        android:contentDescription="@string/plus_button"
-        android:minWidth="60dp"
-        android:minHeight="60dp"
-        android:src="@drawable/ic_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
@@ -74,5 +60,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mytask"></android.support.v7.widget.RecyclerView>
+
+    <ImageButton
+        android:id="@+id/add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/plus_button"
+        android:minWidth="60dp"
+        android:minHeight="60dp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

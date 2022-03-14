@@ -53,7 +53,7 @@ public class AddNewTaskActivity extends AppCompatActivity {
         addTaskBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(AddNewTaskActivity.this, MainActivity.class);
             }
         });
     }

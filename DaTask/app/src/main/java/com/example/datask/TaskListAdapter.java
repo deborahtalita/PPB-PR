@@ -1,5 +1,6 @@
 package com.example.datask;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,12 +20,17 @@ public class TaskListAdapter extends
         RecyclerView.Adapter<TaskListAdapter.ViewHolder>{
 
     Context ctx;
-    private List<Task> listTask;
     private LayoutInflater mInflater;
+    String[] dataName;
+    String[] dataDate;
+    String[] dataCourse;
+    String[] dataDesc;
 
-    public TaskListAdapter(Context ctx, List<Task> listTask){
+    public TaskListAdapter(Context ctx, String[] d1,String[] d2, String[] d3){
         mInflater = LayoutInflater.from(ctx);
-        this.listTask = listTask;
+        dataName = d1;
+        dataDate = d2;
+        dataCourse = d3;
     }
 
     @NonNull
@@ -36,27 +42,38 @@ public class TaskListAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        Task item = listTask.get(i);
-        viewHolder.taskName.setText(listTask.get(i).getName());
-        viewHolder.dueDate.setText(listTask.get(i).getDueDate());
-        viewHolder.courseName.setText(listTask.get(i).getCourse());
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, @SuppressLint("RecyclerView") int i) {
+        viewHolder.taskName.setText(dataName[i]);
+        viewHolder.dueDate.setText(dataDate[i]);
+        viewHolder.courseName.setText(dataCourse[i]);
+        viewHolder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(ctx, TaskDetailActivity.class);
+                in.putExtra("taskname",dataName[i]);
+                in.putExtra("duedate",dataDate[i]);
+                in.putExtra("course",dataCourse[i]);
+                in.putExtra("desc",dataDesc[i]);
+                ctx.startActivity(in);
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-
-        return listTask.size();
+        return dataName.length;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public TextView taskName, dueDate, courseName;
+        LinearLayout layout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             taskName = itemView.findViewById(R.id.view_name);
             dueDate = itemView.findViewById(R.id.view_date);
             courseName = itemView.findViewById(R.id.view_course);
+            layout = itemView.findViewById(R.id.layoutHolder);
         }
     }
 }
