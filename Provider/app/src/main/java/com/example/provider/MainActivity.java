@@ -58,7 +58,7 @@ public class MainActivity extends ListActivity {
     protected void ListContacts(){
         Uri allContacts = Uri.parse("content://contacts/people");
 //        String[] projection = new String[]
-//                {ContactsContract.Contacts._ID,
+//                {       ContactsContract.Contacts._ID,
 //                        ContactsContract.Contacts.DISPLAY_NAME,
 //                        ContactsContract.Contacts.HAS_PHONE_NUMBER};
         Cursor c;
@@ -76,7 +76,7 @@ public class MainActivity extends ListActivity {
         int[] views = new int[]{R.id.contactName, R.id.contactID};
         SimpleCursorAdapter adapter;
         adapter = new SimpleCursorAdapter(
-                this, R.layout.activity_main, c, columns, views,
+                this, R.layout.activity_main, c, columns , views,
                 CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER);
         this.setListAdapter(adapter);
     }
@@ -86,9 +86,9 @@ public class MainActivity extends ListActivity {
     {
         if (c.moveToFirst()) {
             do{
-                String contactID = c.getString(c.getColumnIndexOrThrow(
+                String contactID = c.getString(c.getColumnIndex(
                         ContactsContract.Contacts._ID));
-                @SuppressLint("Range") String contactDisplayName =
+                String contactDisplayName =
                         c.getString(c.getColumnIndex(
                                 ContactsContract.Contacts.DISPLAY_NAME));
                 Log.v("Content Providers", contactID + ", " +
