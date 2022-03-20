@@ -1,63 +1,64 @@
 package com.example.datask_v2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    ImageButton plusButton;
-    private RecyclerView recyclerView;
-    private TaskViewModel mTaskViewModel;
-    public static final int NEW_TASK_ACTIVITY_REQUEST_CODE = 1;
-    List<Task> listTask;
+
+    private BottomNavigationView bottomNavigation;
+    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-        plusButton = (ImageButton) findViewById(R.id.add_button);
 
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final TaskListAdapter adapter = new TaskListAdapter(new TaskListAdapter.TaskDiff(), this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        getFragmentPage(new HomeFragment());
 
-        mTaskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
-        mTaskViewModel.getAllTasks().observe(this, tasks -> {
-            // Update the cached copy of the words in the adapter.
-            adapter.submitList(tasks);
-        });
-        plusButton.setOnClickListener(new View.OnClickListener() {
+        bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AddNewTaskActivity.class);
-                startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch(menuItem.getItemId()){
+                    case R.id.nav_home:
+                        fragment = new HomeFragment();
+                        break;
+                    case R.id.nav_profile:
+                        fragment = new ProfileFragment();
+                        break;
+                }
+                return getFragmentPage(fragment);
             }
         });
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == NEW_TASK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Task task = new Task(data.getStringExtra("taskname"),data.getStringExtra("duedate"),data.getStringExtra("course"),data.getStringExtra("desc"));
-            mTaskViewModel.insert(task);
-        } else {
-            Toast.makeText(
-                    getApplicationContext(),
-                    R.string.empty_not_saved,
-                    Toast.LENGTH_LONG).show();
+    // show fragment page
+    private boolean getFragmentPage(Fragment fragment){
+        if (fragment != null){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_container, fragment)
+                    .commit();
+            return true;
         }
+        return false;
     }
 }
