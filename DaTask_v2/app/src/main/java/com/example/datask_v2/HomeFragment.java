@@ -37,6 +37,8 @@ public class HomeFragment extends Fragment {
         ImageButton plusButton = (ImageButton) view.findViewById(R.id.add_button);
 
         // welcome name
+//        Bundle bundle = getArguments();
+//        txtName = bundle.getString("name");
 //        TextView welcomeName = view.findViewById(R.id.welcome);
 //        String welcome = "Welcome, "+txtName;
 //        welcomeName.setText(welcome);

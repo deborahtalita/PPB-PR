@@ -51,14 +51,14 @@ public class ProfileFragment extends Fragment {
                         .setNegativeButton("Cancel", null)
                         .create();
                 log.show();
+//                String name = profileName.getText().toString();
+//                Bundle bundle = new Bundle();
+//                bundle.putString("name", name);
+//                HomeFragment fragobj = new HomeFragment();
+//                fragobj.setArguments(bundle);
+//                getFragmentManager().beginTransaction().replace(R.id.main_container,fragobj).commit();
             }
         });
-        String name = profileName.getText().toString();
-        Bundle bundle = new Bundle();
-        bundle.putString("name", name);
-        HomeFragment fragobj = new HomeFragment();
-        fragobj.setArguments(bundle);
-
         return view;
     }
 }
