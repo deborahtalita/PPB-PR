@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DaTask</string>
+    <string name="app_logo">DaTask</string>
+    <string name="welcome">Welcome, Adolfo</string>
+    <string name="task_pending">2 task pending</string>
+    <string name="my_task">My Tasks</string>
+    <string name="task">Latihan Statistika Deskriptif</string>
+    <string name="deadline">February 21, 2022</string>
+    <string name="course">Statistika</string>
+    <string name="home_logo">Home</string>
+    <string name="lib_logo">Profile</string>
+    <string name="plus_button">Add</string>
+    <string name="new_task">Add new task</string>
+    <string name="task_details">Task details</string>
+    <string name="name">Name</string>
+    <string name="due_date">Due date</string>
+    <string name="courses">Course</string>
+    <string name="desc">Description</string>
+    <string name="stat">Status</string>
+    <string name="empty_not_saved" />
+</resources>
