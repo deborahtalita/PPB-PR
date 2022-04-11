@@ -25,6 +25,10 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static Fragment newInstance(Bundle args){
+        // get your data and do whatever
+        return new HomeFragment(); }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,17 +41,21 @@ public class HomeFragment extends Fragment {
         ImageButton plusButton = (ImageButton) view.findViewById(R.id.add_button);
 
         // welcome name
-//        Bundle bundle = getArguments();
+//
+        Bundle bundle = this.getArguments();
 //        txtName = bundle.getString("name");
+//
 //        TextView welcomeName = view.findViewById(R.id.welcome);
-//        String welcome = "Welcome, "+txtName;
+//        String welcome = "Welcome, "+ txtName;
 //        welcomeName.setText(welcome);
-
         // recyclerview
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         final TaskListAdapter adapter = new TaskListAdapter(new TaskListAdapter.TaskDiff(), getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+//        TextView taskpending = view.findViewById(R.id.task_pending);
+//        taskpending.setText(adapter.getItemCount() + " task pending");
 
         mTaskViewModel = new ViewModelProvider(this, new ViewModelProvider.AndroidViewModelFactory(getActivity().getApplication())).get(TaskViewModel.class);
         mTaskViewModel.getAllTasks().observe(getViewLifecycleOwner(), tasks -> {
