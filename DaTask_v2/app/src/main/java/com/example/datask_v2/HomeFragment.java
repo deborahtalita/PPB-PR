@@ -76,7 +76,8 @@ public class HomeFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_TASK_ACTIVITY_REQUEST_CODE && resultCode == -1) {
-            Task task = new Task(data.getStringExtra("taskname"),data.getStringExtra("duedate"),data.getStringExtra("course"),data.getStringExtra("desc"));
+            //Task task = new Task(data.getStringExtra("taskname"),data.getStringExtra("duedate"),data.getStringExtra("course"),data.getStringExtra("desc"));
+            Task task = data.getParcelableExtra("TASK");
             mTaskViewModel.insert(task);
         } else {
             Toast.makeText(

@@ -18,6 +18,8 @@
     <string name="desc">Description</string>
     <string name="stat">Status</string>
     <string name="empty_not_saved" />
+    <string name="job_service">Job Service</string>
+    <string name="job_running">Your Job is running</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

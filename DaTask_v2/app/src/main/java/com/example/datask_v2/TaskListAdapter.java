@@ -39,10 +39,8 @@ public class TaskListAdapter extends
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(ctx, TaskDetailActivity.class);
-                in.putExtra("taskname",current.getTaskName());
-                in.putExtra("duedate",current.getDueDate());
-                in.putExtra("course",current.getCourseName());
-                in.putExtra("desc",current.getDesc());
+                Task task = new Task(current.getTaskName(), current.getDueDate(), current.getCourseName(), current.getDesc(), current.getTime());
+                in.putExtra("TASK", task);
                 ctx.startActivity(in);
             }
         });

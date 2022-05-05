@@ -55,4 +55,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     androidTestImplementation "androidx.test.ext:junit:$rootProject.androidxJunitVersion"
+
+    // WorkManager dependency
+    implementation "androidx.work:work-runtime:2.7.1"
 }
