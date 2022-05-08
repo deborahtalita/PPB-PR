@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.job.JobScheduler;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -21,6 +22,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int JOB_ID = 0;
+    private JobScheduler mScheduler;
     private BottomNavigationView bottomNavigation;
     private Fragment fragment;
 
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         getFragmentPage(new HomeFragment());
+        mScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
 
         bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 

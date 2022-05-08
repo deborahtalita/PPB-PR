@@ -1,5 +1,13 @@
 package com.example.datask_v2;
 
+import static android.content.Context.JOB_SCHEDULER_SERVICE;
+
+import static com.example.datask_v2.HomeFragment.NEW_TASK_ACTIVITY_REQUEST_CODE;
+
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +21,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProfileFragment extends Fragment {
 
+    private static final int JOB_ID = 0;
+    private JobScheduler mScheduler;
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -32,6 +43,7 @@ public class ProfileFragment extends Fragment {
         EditText editName = new EditText(getContext());
         Button editBtn = view.findViewById(R.id.profile_btn);
         TextView profileName = view.findViewById(R.id.profile_name);
+        Button jobBtn = view.findViewById(R.id.schedulerBtn);
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +71,15 @@ public class ProfileFragment extends Fragment {
 //                getFragmentManager().beginTransaction().replace(R.id.main_container,fragobj).commit();
             }
         });
+
+        jobBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), ReminderActivity.class);
+                startActivityForResult(intent, NEW_TASK_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
         return view;
     }
 }
