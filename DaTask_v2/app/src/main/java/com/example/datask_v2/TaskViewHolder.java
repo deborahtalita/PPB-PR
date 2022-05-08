@@ -14,6 +14,7 @@ class TaskViewHolder extends RecyclerView.ViewHolder{
     private final TextView dueDateView;
     private final TextView courseNameView;
     LinearLayout layout;
+
     private TaskViewHolder(@NonNull View itemView) {
         super(itemView);
         taskNameView = itemView.findViewById(R.id.view_name);

@@ -84,37 +84,9 @@ public class NotificationJobService extends JobService {
         return false;
     }
 
-    private void doBackgroundWork(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while(i > 0){
-                    mNumber++;
-                    Log.i("NotificationJobService","Thread id: "+Thread.currentThread().getId()+", Number: "+ mNumber);
-                }
-            }
-        }).start();
-    }
-
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
         Log.i("NotificationJobService","onStopJob");
         return false;
-    }
-
-    private void startCounter(){
-        while (mIsCounterOn){
-            try{
-                Thread.sleep(1000);
-                if(mIsCounterOn){
-                    while(i > 0){
-                        mNumber++;
-                        Log.i("NotificationJobService","Thread id: "+Thread.currentThread().getId()+", Number: "+ mNumber);
-                    }
-                }
-            }catch (InterruptedException e){
-                Log.i("NotificationJobService","Thread Interrupted");
-            }
-        }
     }
 }

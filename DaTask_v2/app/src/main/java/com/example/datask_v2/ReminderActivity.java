@@ -73,11 +73,8 @@ public class ReminderActivity extends AppCompatActivity {
     }
 
     public void cancelJobs(View view){
-       // if (mScheduler!=null){
-            mScheduler.cancelAll();
-            //mScheduler = null;
-            Toast.makeText(this, "Daily reminder is stopped", Toast.LENGTH_SHORT).show();
-        //}
+        mScheduler.cancelAll();
+        Toast.makeText(this, "Daily reminder is stopped", Toast.LENGTH_SHORT).show();
     }
 
     public boolean isJobSchedulerRunning() {

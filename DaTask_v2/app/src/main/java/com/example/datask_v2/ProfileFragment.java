@@ -72,6 +72,7 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        // Set a scheduler button
         jobBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
