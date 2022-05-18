@@ -1,6 +1,7 @@
-package com.example.restfulapi;
+package com.example.restfulapi.responses;
 
 import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 public class ListUserResponse{

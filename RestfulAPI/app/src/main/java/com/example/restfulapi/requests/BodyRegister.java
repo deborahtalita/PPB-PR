@@ -1,8 +1,8 @@
-package com.example.restfulapi;
+package com.example.restfulapi.requests;
 
 import com.google.gson.annotations.SerializedName;
 
-public class BodyLogin{
+public class BodyRegister{
 
 	@SerializedName("password")
 	private String password;
@@ -29,7 +29,7 @@ public class BodyLogin{
 	@Override
  	public String toString(){
 		return 
-			"BodyLogin{" + 
+			"BodyRegister{" + 
 			"password = '" + password + '\'' + 
 			",email = '" + email + '\'' + 
 			"}";

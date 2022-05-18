@@ -1,8 +1,7 @@
-package com.example.restfulapi;
+package com.example.restfulapi.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.restfulapi.R;
+import com.example.restfulapi.activities.UserActivity;
+import com.example.restfulapi.responses.DataItem;
 
 import java.util.List;
 
@@ -38,6 +40,7 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.ViewHo
         //int position = i;
         holder.tvName.setText(dataUser.get(i).getFirstName());
         holder.tvLastName.setText(dataUser.get(i).getLastName());
+        holder.tvEmail.setText(dataUser.get(i).getLastName());
         Glide.with(ctx).load(dataUser.get(i).getAvatar()).into(holder.imgAvatar);
         holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +61,7 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.ViewHo
         ImageView imgAvatar;
         TextView tvName;
         TextView tvLastName;
+        TextView tvEmail;
         RelativeLayout layout;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +69,7 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.ViewHo
             tvName = itemView.findViewById(R.id.tv_name);
             tvLastName = itemView.findViewById(R.id.tv_last_name);
             layout = itemView.findViewById(R.id.relativeLayout);
+            tvEmail = itemView.findViewById(R.id.tv_email);
         }
     }
 }

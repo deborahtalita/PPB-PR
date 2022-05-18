@@ -1,10 +1,15 @@
-package com.example.restfulapi;
+package com.example.restfulapi.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.restfulapi.R;
+import com.example.restfulapi.api.RestClient;
+import com.example.restfulapi.responses.DataItem;
+import com.example.restfulapi.responses.SingleUserResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -14,27 +14,38 @@
         app:srcCompat="@drawable/ic_launcher_foreground" />
 
     <TextView
-        android:paddingLeft="10dp"
-        android:textSize="20dp"
-        android:textStyle="bold"
+        android:id="@+id/tv_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:id="@+id/tv_name"
-        android:text="Nama"
         android:layout_centerInParent="true"
-        android:layout_toRightOf="@+id/img_avatar"/>
-
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/tv_name"
+        android:layout_toRightOf="@+id/img_avatar"
         android:layout_weight="1"
         android:paddingLeft="10dp"
-        android:textSize="18dp"
+        android:text="Nama"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@+id/img_avatar"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:text="Last Nama"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_below="@+id/tv_last_name"
+        android:id="@+id/tv_email"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:textSize="14dp"
         android:layout_toRightOf="@+id/img_avatar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_last_name"
-        android:text="Last Nama"
-        android:layout_gravity="center"/>
+        android:text="TextView" />
 </RelativeLayout>

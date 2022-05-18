@@ -12,19 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestfulAPI">
         <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.ListResourceActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ListUserActivity"
             android:exported="false" />
         <activity
-            android:name=".UserActivity"
-            android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
+            android:name=".activities.UserActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

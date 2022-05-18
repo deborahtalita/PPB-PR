@@ -6,12 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.restfulapi.DataItem;
-import com.example.restfulapi.ListUserAdapter;
-import com.example.restfulapi.ListUserResponse;
-import com.example.restfulapi.MainActivity;
+import com.example.restfulapi.responses.DataItem;
+import com.example.restfulapi.adapter.ListUserAdapter;
+import com.example.restfulapi.responses.ListUserResponse;
 import com.example.restfulapi.R;
-import com.example.restfulapi.RestClient;
+import com.example.restfulapi.api.RestClient;
 
 import java.util.List;
 

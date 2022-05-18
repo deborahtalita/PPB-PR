@@ -1,4 +1,4 @@
-package com.example.restfulapi;
+package com.example.restfulapi.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.restfulapi.responses.ErrorResponse;
+import com.example.restfulapi.responses.ErrorUtils;
+import com.example.restfulapi.responses.LoginResponse;
+import com.example.restfulapi.MainActivity;
+import com.example.restfulapi.R;
+import com.example.restfulapi.api.RestClient;
+import com.example.restfulapi.requests.BodyLogin;
+import com.google.gson.Gson;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -39,10 +50,18 @@ public class LoginActivity extends AppCompatActivity {
                     // method di bawah otomatis pada saat new Callback
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        Toast.makeText(LoginActivity.this, response.body().getToken(), Toast.LENGTH_SHORT).show();
-                        Log.i("Response", response.message());
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        finish();
+                        if (response.isSuccessful()){
+                            // Status code is 200
+                            Toast.makeText(LoginActivity.this, response.body().getToken(), Toast.LENGTH_SHORT).show();
+                            Log.i("Response", response.message());
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish();
+                        } else {
+                            ErrorResponse error = ErrorUtils.parseError(response);
+                            Toast.makeText(LoginActivity.this, error.getError(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Missing password", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
 
                     @Override

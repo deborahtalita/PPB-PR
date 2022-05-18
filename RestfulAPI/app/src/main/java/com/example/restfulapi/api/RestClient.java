@@ -1,4 +1,4 @@
-package com.example.restfulapi;
+package com.example.restfulapi.api;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -8,6 +8,7 @@ public class RestClient {
 
     // TODO menginisiasi MainInterface
     private static MainInterface service;
+    private static Retrofit retrofit;
 
     public static MainInterface getService() {
 
@@ -25,5 +26,9 @@ public class RestClient {
             service = retrofit.create(MainInterface.class);
         }
         return service;
+    }
+
+    public static Retrofit retrofit(){
+        return retrofit;
     }
 }

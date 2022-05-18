@@ -1,4 +1,4 @@
-package com.example.restfulapi;
+package com.example.restfulapi.responses;
 
 import com.google.gson.annotations.SerializedName;
 

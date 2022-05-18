@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.restfulapi.activities.ListResourceActivity;
 import com.example.restfulapi.activities.ListUserActivity;
+import com.example.restfulapi.activities.RegisterActivity;
 
 import java.util.List;
 
@@ -19,13 +20,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnListUser, btnListResource;
+    Button btnListUser, btnListResource, btnRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnListUser = findViewById(R.id.btnListUser);
         btnListResource = findViewById(R.id.btnListRsc);
+        btnRegister = findViewById(R.id.btnRegister);
 
         View.OnClickListener onButtonClickListener = new View.OnClickListener() {
             @Override
@@ -38,11 +40,15 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btnListRsc:
                         in = new Intent(MainActivity.this, ListResourceActivity.class);
                         break;
+                    case R.id.btnRegister:
+                        in = new Intent(MainActivity.this, RegisterActivity.class);
+                        break;
                 }
                 startActivity(in);
             }
         };
         btnListUser.setOnClickListener(onButtonClickListener);
         btnListResource.setOnClickListener(onButtonClickListener);
+        btnRegister.setOnClickListener(onButtonClickListener);
     }
 }

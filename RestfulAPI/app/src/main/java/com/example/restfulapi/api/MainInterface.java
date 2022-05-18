@@ -1,6 +1,12 @@
-package com.example.restfulapi;
+package com.example.restfulapi.api;
 
+import com.example.restfulapi.requests.BodyRegister;
+import com.example.restfulapi.responses.RegisterResponse;
+import com.example.restfulapi.responses.SingleUserResponse;
+import com.example.restfulapi.requests.BodyLogin;
 import com.example.restfulapi.responses.ListResourceResponse;
+import com.example.restfulapi.responses.ListUserResponse;
+import com.example.restfulapi.responses.LoginResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -21,4 +27,7 @@ public interface MainInterface {
 
     @GET("api/unknown")
     Call<ListResourceResponse> getListRsc();
+
+    @POST("api/register")
+    Call<RegisterResponse> postRegister(@Body BodyRegister bodyRegister);
 }
