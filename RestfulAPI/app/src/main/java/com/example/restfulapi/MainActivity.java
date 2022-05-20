@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.restfulapi.activities.CRUDActivity;
 import com.example.restfulapi.activities.ListResourceActivity;
 import com.example.restfulapi.activities.ListUserActivity;
 import com.example.restfulapi.activities.RegisterActivity;
+import com.example.restfulapi.activities.SingleResourceActivity;
 
 import java.util.List;
 
@@ -20,7 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnListUser, btnListResource, btnRegister;
+    Button btnListUser, btnListResource, btnRegister, btnSingleRsc, btnCRUD;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         btnListUser = findViewById(R.id.btnListUser);
         btnListResource = findViewById(R.id.btnListRsc);
         btnRegister = findViewById(R.id.btnRegister);
+        btnSingleRsc = findViewById(R.id.btnSingleRsc);
+        btnCRUD = findViewById(R.id.btnCRUD);
 
         View.OnClickListener onButtonClickListener = new View.OnClickListener() {
             @Override
@@ -43,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.btnRegister:
                         in = new Intent(MainActivity.this, RegisterActivity.class);
                         break;
+                    case R.id.btnSingleRsc:
+                        in = new Intent(MainActivity.this, SingleResourceActivity.class);
+                        break;
+                    case R.id.btnCRUD:
+                        in = new Intent(MainActivity.this, CRUDActivity.class);
+                        break;
                 }
                 startActivity(in);
             }
@@ -50,5 +60,7 @@ public class MainActivity extends AppCompatActivity {
         btnListUser.setOnClickListener(onButtonClickListener);
         btnListResource.setOnClickListener(onButtonClickListener);
         btnRegister.setOnClickListener(onButtonClickListener);
+        btnSingleRsc.setOnClickListener(onButtonClickListener);
+        btnCRUD.setOnClickListener(onButtonClickListener);
     }
 }

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RestfulAPI">
         <activity
+            android:name=".activities.CRUDActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.SingleResourceActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
