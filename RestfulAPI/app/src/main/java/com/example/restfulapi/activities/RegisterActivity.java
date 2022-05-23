@@ -62,7 +62,8 @@ public class RegisterActivity extends AppCompatActivity {
                         } else {
 //                            ErrorResponse error = ErrorUtils.parseError(response);
 //                            Toast.makeText(RegisterActivity.this, error.getError(), Toast.LENGTH_SHORT).show();
-//                            Toast.makeText(RegisterActivity.this, "Missing password", Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(RegisterActivity.this, "Missing password", Toast.LENGTH_SHORT).show();
                         }
 
                     }

@@ -57,9 +57,9 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
                             finish();
                         } else {
-                            ErrorResponse error = ErrorUtils.parseError(response);
-                            Toast.makeText(LoginActivity.this, error.getError(), Toast.LENGTH_SHORT).show();
-                            Toast.makeText(LoginActivity.this, "Missing password", Toast.LENGTH_SHORT).show();
+//                            ErrorResponse error = ErrorUtils.parseError(response);
+//                            Toast.makeText(LoginActivity.this, error.getError(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Code: " + response.code() + "\n" + "Missing password", Toast.LENGTH_SHORT).show();
                         }
 
                     }

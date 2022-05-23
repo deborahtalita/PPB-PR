@@ -52,4 +52,7 @@ public interface MainInterface {
 
     @DELETE("api/users/{id}")
     Call<Void> deleteUser(@Path("id") int userId);
+
+    @GET("api/users?delay=3")
+    Call<ListUserResponse> delayedResponse();
 }

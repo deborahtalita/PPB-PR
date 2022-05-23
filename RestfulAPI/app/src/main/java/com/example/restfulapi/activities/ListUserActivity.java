@@ -30,11 +30,32 @@ public class ListUserActivity extends AppCompatActivity {
 
         rvListUser = findViewById(R.id.rvListUser);
 
-        getListUser();
+        //getListUser();
+        getListUserDelayed();
     }
 
     private void getListUser(){
         RestClient.getService().getList().enqueue(new Callback<ListUserResponse>() {
+            @Override
+            public void onResponse(Call<ListUserResponse> call, Response<ListUserResponse> response) {
+                if (response.isSuccessful()){
+                    listItem = response.body().getData();
+
+                    adapter = new ListUserAdapter(listItem, ListUserActivity.this);
+                    rvListUser.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    rvListUser.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ListUserResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void getListUserDelayed(){
+        RestClient.getService().delayedResponse().enqueue(new Callback<ListUserResponse>() {
             @Override
             public void onResponse(Call<ListUserResponse> call, Response<ListUserResponse> response) {
                 if (response.isSuccessful()){
